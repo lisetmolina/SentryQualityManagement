@@ -7,6 +7,10 @@ namespace SentryQualityManagement.Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Roles> RoleRepository { get; }
+
+        IUserRepository UserRepository { get; }
+
+        IRepository<Areas> AreaRepository { get; }
         IUserRepository  UserRepository { get; }
         IRepository<Modules> ModuleRepository { get; }
         IRepository<Transactions> TransactionRepository { get; }

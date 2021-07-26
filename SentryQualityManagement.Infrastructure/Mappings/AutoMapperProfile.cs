@@ -17,6 +17,9 @@ namespace SentryQualityManagement.Infrastructure.Mappings
 
             CreateMap<Users, UserDto>().ReverseMap();
 
+            CreateMap<Areas, AreaDto>();
+            CreateMap<AreaDto, Areas>();
+
             CreateMap<Modules, ModuleDto>();
             CreateMap<ModuleDto, Modules>();
 

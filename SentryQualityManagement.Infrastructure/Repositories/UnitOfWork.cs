@@ -10,6 +10,7 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly SentryQualityManagementContext _context;
         private readonly IRepository<Roles> _roleRepository;
         private readonly IRepository<Users> _userRepository;
+        private readonly IRepository<Areas> _arearepository;
         private readonly IRepository<Modules> _modulerRepository;
         private readonly IRepository<Transactions> _transactionRepository;
         private readonly IRepository<Periodicities> _periodicityRepository;
@@ -29,7 +30,11 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         public IRepository<Periodicities> PeriodicityRepository => _periodicityRepository ?? new BaseRepository<Periodicities>(_context);
         public IRepository<IndicatorsTemplate> IndicatorTemplateRepository => _indicatorTemplateRepository ?? new BaseRepository<IndicatorsTemplate>(_context);
 
-        IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
+        public IRepository<Areas> AreaRepository => _arearepository ?? new BaseRepository<Areas>(_context);
+
+        IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();  
+        
+        // Implementacion sugerida por el visual, nose si esta bien prenguntar...
 
         public void Dispose()
         {
@@ -44,9 +49,9 @@ namespace SentryQualityManagement.Infrastructure.Repositories
             _context.SaveChanges();
         }
 
-        public async Task SaveChangesAsync()
+        public Task SaveChangesAsync()
         {
-           await _context.SaveChangesAsync();
+            throw new System.NotImplementedException();
         }
     }
 }

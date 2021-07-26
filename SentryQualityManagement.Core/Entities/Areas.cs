@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace SentryQualityManagement.Core.Entities
 {
-    public partial class Areas
+    public partial class Areas : BaseEntity
     {
-        public Areas()
+        public Areas() 
         {
             Indicators = new HashSet<Indicators>();
         }
 
-        public int AreaId { get; set; }
+       
         public string AreaName { get; set; }
         public int UserId { get; set; }
 

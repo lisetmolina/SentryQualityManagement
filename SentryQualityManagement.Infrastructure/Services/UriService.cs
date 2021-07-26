@@ -6,38 +6,20 @@ namespace SentryQualityManagement.Infrastructure.Services
 {
     public class UriService : IUriService
     {
-      private readonly string _baseUri;
+        private readonly string _baseUri;
 
-      public UriService(string baseUri)
-      {
+    public UriService(string baseUri)
+    {
         _baseUri = baseUri;
-      } 
+    }
 
-       public Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl)
-       {
-        string baseUrl = $"{_baseUri}{actionUrl}";
-        return new Uri(baseUrl);
-       }
-
-      public Uri GetModulePaginationUri(ModuleQueryFilter filter, string actionUrl)
-      {
-            string baseUrl = $"{_baseUri}{actionUrl}";
-            return new Uri(baseUrl);
-      }
-
-        public Uri GetTransactionPaginationUri(TransactionQueryFilter filter, string actionUrl)
+        public Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl)
         {
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);
         }
 
-        public Uri GetPeriodicityPaginationUri(PeriodicityQueryFilter filter, string actionUrl)
-        {
-            string baseUrl = $"{_baseUri}{actionUrl}";
-            return new Uri(baseUrl);
-        }
-
-        public Uri GetIndicatorTemplatePaginationUri(IndicatorTemplateQueryFilter filter, string actionUrl)
+        public Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl)
         {
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);
