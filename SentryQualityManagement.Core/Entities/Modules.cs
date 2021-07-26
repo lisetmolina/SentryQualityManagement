@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+
+
+
+namespace SentryQualityManagement.Core.Entities
+{
+    public partial class Modules
+    {
+        public Modules()
+        {
+            TransactionsModules = new HashSet<TransactionsModules>();
+        }
+
+        public int ModuleId { get; set; }
+        public string ModuleName { get; set; }
+        public string ModuleDescription { get; set; }
+
+        public virtual ICollection<TransactionsModules> TransactionsModules { get; set; }
+    }
+}
