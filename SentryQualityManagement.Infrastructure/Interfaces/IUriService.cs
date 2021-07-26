@@ -8,5 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Interfaces
     public interface IUriService
     {
         Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl);
+
+        Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl);
     }
 }

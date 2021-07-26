@@ -5,18 +5,24 @@ using System;
 namespace SentryQualityManagement.Infrastructure.Services
 {
     public class UriService : IUriService
-  {
-    private readonly string _baseUri;
-
-    public UriService(string baseUri)
     {
-        _baseUri = baseUri;
-    }
+        private readonly string _baseUri;
 
-    public Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl)
-    {
-        string baseUrl = $"{_baseUri}{actionUrl}";
-        return new Uri(baseUrl);
+        public UriService(string baseUri)
+        {
+            _baseUri = baseUri;
+        }
+
+        public Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl)
+        {
+            string baseUrl = $"{_baseUri}{actionUrl}";
+            return new Uri(baseUrl);
+        }
+
+        public Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl)
+        {
+            string baseUrl = $"{_baseUri}{actionUrl}";
+            return new Uri(baseUrl);
+        }
     }
-  }
 }

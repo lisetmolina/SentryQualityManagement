@@ -10,6 +10,7 @@ namespace SentryQualityManagement.Core.Interfaces
 
         IUserRepository UserRepository { get; }
 
+        IRepository<Areas> AreaRepository { get; }
         void SaveChanges();
 
         Task SaveChangesAsync();

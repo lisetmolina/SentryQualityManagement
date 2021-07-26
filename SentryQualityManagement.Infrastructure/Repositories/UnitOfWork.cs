@@ -10,6 +10,7 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly SentryQualityManagementContext _context;
         private readonly IRepository<Roles> _roleRepository;
         private readonly IRepository<Users> _userRepository;
+        private readonly IRepository<Areas> _arearepository;
 
 
         public UnitOfWork(SentryQualityManagementContext context)
@@ -21,7 +22,11 @@ namespace SentryQualityManagement.Infrastructure.Repositories
 
         public IRepository<Users> UserRepository => _userRepository ?? new BaseRepository<Users>(_context);
 
-        IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
+        public IRepository<Areas> AreaRepository => _arearepository ?? new BaseRepository<Areas>(_context);
+
+        IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();  
+        
+        // Implementacion sugerida por el visual, nose si esta bien prenguntar...
 
         public void Dispose()
         {
@@ -36,9 +41,9 @@ namespace SentryQualityManagement.Infrastructure.Repositories
             _context.SaveChanges();
         }
 
-        public async Task SaveChangesAsync()
+        public Task SaveChangesAsync()
         {
-           await _context.SaveChangesAsync();
+            throw new System.NotImplementedException();
         }
     }
 }
