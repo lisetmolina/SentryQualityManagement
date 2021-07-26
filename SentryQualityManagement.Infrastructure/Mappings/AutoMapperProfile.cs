@@ -16,6 +16,9 @@ namespace SentryQualityManagement.Infrastructure.Mappings
             CreateMap<RoleDto,Roles>();
 
             CreateMap<Users, UserDto>().ReverseMap();
+
+            CreateMap<Modules, ModuleDto>();
+            CreateMap<ModuleDto, Modules>();
         }
     }
 }

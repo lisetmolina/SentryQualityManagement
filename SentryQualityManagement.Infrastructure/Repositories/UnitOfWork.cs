@@ -10,7 +10,7 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly SentryQualityManagementContext _context;
         private readonly IRepository<Roles> _roleRepository;
         private readonly IRepository<Users> _userRepository;
-
+        private readonly IRepository<Modules> _modulerRepository;
 
         public UnitOfWork(SentryQualityManagementContext context)
             
@@ -20,6 +20,8 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         public IRepository<Roles> RoleRepository => _roleRepository ?? new BaseRepository<Roles>(_context);
 
         public IRepository<Users> UserRepository => _userRepository ?? new BaseRepository<Users>(_context);
+
+        public IRepository<Modules> ModuleRepository => _modulerRepository ?? new BaseRepository<Modules>(_context);
 
         IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
 
