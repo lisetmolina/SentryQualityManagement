@@ -1,8 +1,10 @@
-﻿namespace SentryQualityManagement.Core.DTOs
+﻿using SentryQualityManagement.Core.Enumerations;
+
+namespace SentryQualityManagement.Core.DTOs
 {
     public class RoleDto
     {
-        public int RoleId { get; set; }
+        public RoleType? Id { get; set; }
         public string RoleName { get; set; }
 
         public string RoleDescription { get; set; }
