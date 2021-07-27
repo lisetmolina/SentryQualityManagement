@@ -11,6 +11,7 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly IRepository<Roles> _roleRepository;
         private readonly IRepository<Users> _userRepository;
         private readonly IRepository<Areas> _arearepository;
+        private readonly IRepository<Indicators> _indicatorrepository;
         private readonly IRepository<Modules> _modulerRepository;
         private readonly IRepository<Transactions> _transactionRepository;
         private readonly IRepository<Periodicities> _periodicityRepository;
@@ -32,9 +33,11 @@ namespace SentryQualityManagement.Infrastructure.Repositories
 
         public IRepository<Areas> AreaRepository => _arearepository ?? new BaseRepository<Areas>(_context);
 
+        public IRepository<Indicators> IndicatorRepository => _indicatorrepository ?? new BaseRepository<Indicators>(_context);
+
         IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();  
         
-        // Implementacion sugerida por el visual, nose si esta bien prenguntar...
+        // Implementacion sugerida por el visual, nose si esta bien,preguntar...
 
         public void Dispose()
         {

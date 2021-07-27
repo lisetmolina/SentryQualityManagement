@@ -6,7 +6,7 @@ namespace SentryQualityManagement.Core.Dtos
 {
     public class IndicatorDto
     {
-        public int IndicatorId { get; set; }
+        public int Id { get; set; }
         public string IndicatorName { get; set; }
         public string IndicatorDescription { get; set; }
         public string Formula { get; set; }

@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Indicators> builder)
         {
-           builder.HasKey(e => e.IndicatorId)
+           builder.HasKey(e => e.Id)
                     .HasName("PK__Indicato__4CDF25A20F44D467");
 
            builder.Property(e => e.Formula)

@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace SentryQualityManagement.Core.Interfaces
 {
-    public interface IAreaRepository : IRepository<Areas>
+     public interface IIndicatorRepository : IRepository<Indicators>
     {
-        Task<IEnumerable<Areas>> GetAreasByUser(int userId);
+        Task<IEnumerable<Indicators>> GetIndicatorsByUser(int userId);
     }
 }
+

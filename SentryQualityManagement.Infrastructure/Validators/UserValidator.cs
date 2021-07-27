@@ -1,8 +1,5 @@
 ﻿using FluentValidation;
 using SentryQualityManagement.Core.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SentryQualityManagement.Infrastructure.Validators
 {

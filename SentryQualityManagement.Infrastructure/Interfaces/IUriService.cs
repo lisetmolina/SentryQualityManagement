@@ -1,4 +1,5 @@
-﻿using SentryQualityManagement.Core.QueryFilters;
+﻿using SentryQualityManagement.Core.Interfaces;
+using SentryQualityManagement.Core.QueryFilters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,8 @@ namespace SentryQualityManagement.Infrastructure.Interfaces
     {
         Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl);
 
+        Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl);
+        Uri GetIndicatorPaginationUri(IndicatorsQueryFilter filter, string actionUrl);
         Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl);
         Uri GetModulePaginationUri(ModuleQueryFilter filter, string actionUrl);
         Uri GetTransactionPaginationUri(TransactionQueryFilter filter, string actionUrl);
