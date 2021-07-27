@@ -12,6 +12,8 @@ namespace SentryQualityManagement.Core.Interfaces
 
         IRepository<Modules> ModuleRepository { get; }
 
+        IRepository<Transactions> TransactionRepository { get; }
+
         void SaveChanges();
 
         Task SaveChangesAsync();

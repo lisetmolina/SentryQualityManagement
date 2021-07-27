@@ -19,6 +19,9 @@ namespace SentryQualityManagement.Infrastructure.Mappings
 
             CreateMap<Modules, ModuleDto>();
             CreateMap<ModuleDto, Modules>();
+
+            CreateMap<Transactions, TransactionDto>();
+            CreateMap<TransactionDto, Transactions>();
         }
     }
 }
