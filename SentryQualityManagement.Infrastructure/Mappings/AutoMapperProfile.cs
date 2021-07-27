@@ -19,6 +19,9 @@ namespace SentryQualityManagement.Infrastructure.Mappings
 
             CreateMap<Areas, AreaDto>();
             CreateMap<AreaDto, Areas>();
+
+            CreateMap<Indicators, IndicatorDto>();
+            CreateMap<IndicatorDto, Indicators>();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace SentryQualityManagement.Core.Services
         {
             return await _unitOfWork.AreaRepository.GetById(id);
         }
-        public PagedList<Areas> GetAreas(AreaQueryFilter filters)
+        public PagedList<Areas> GetAreas(IndicatorQueryFilter filters)
         {
             filters.PageNumber = filters.PageNumber == 0 ? _paginationOptions.DefaultPageNumber : filters.PageNumber;
             filters.PageSize = filters.PageSize == 0 ? _paginationOptions.DefaultPageSize : filters.PageSize;

@@ -35,7 +35,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
                 .HasForeignKey(d => d.RoleId)
                 .HasConstraintName("FK__Users__RoleId__32E0915F");
 
-            builder.Property(e => e.Role)
+            builder.Property(e => e.RoleId)
 
               .HasMaxLength(50)
               .IsRequired()

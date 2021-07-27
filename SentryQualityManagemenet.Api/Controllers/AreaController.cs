@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using SentryQualityManagement.Api.Responses;
 using SentryQualityManagement.Core.CustomEntities;
 using SentryQualityManagement.Core.Dtos;
-using SentryQualityManagement.Core.DTOs;
 using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
@@ -45,7 +44,7 @@ namespace SentryQualityManagement.Api.Controllers
         [HttpGet(Name = nameof(GetAreas))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<AreaDto>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult GetAreas([FromQuery] AreaQueryFilter filters)
+        public IActionResult GetAreas([FromQuery] IndicatorQueryFilter filters)
         {
             var areas = _areaService.GetAreas(filters);
             var areasDtos = _mapper.Map<IEnumerable<AreaDto>>(areas);
@@ -60,8 +59,8 @@ namespace SentryQualityManagement.Api.Controllers
                 TotalPages = areas.TotalPages,
                 HasNextPage = areas.HasNextPage,
                 HasPreviousPage = areas.HasPreviousPage,
-                NextPageUrl = _uriService.GetAreaPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString(),
-                PreviousPageUrl = _uriService.GetAreaPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString()
+                NextPageUrl = _uriService.GetIndicatorPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString(),
+                PreviousPageUrl = _uriService.GetIndicatorPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString()
             };
 
             var response = new ApiResponse<IEnumerable<AreaDto>>(areasDtos)

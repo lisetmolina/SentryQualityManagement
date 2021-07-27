@@ -1,4 +1,5 @@
-﻿using SentryQualityManagement.Core.QueryFilters;
+﻿using SentryQualityManagement.Core.Interfaces;
+using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
 using System;
 
@@ -19,10 +20,16 @@ namespace SentryQualityManagement.Infrastructure.Services
             return new Uri(baseUrl);
         }
 
-        public Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl)
+        public Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl)
         {
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);
+
         }
+        public Uri GetIndicatorPaginationUri(IndicatorsQueryFilter filter, string actionUrl)
+            {
+                string baseUrl = $"{_baseUri}{actionUrl}";
+                return new Uri(baseUrl);
+            }
     }
 }

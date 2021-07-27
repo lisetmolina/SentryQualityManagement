@@ -1,14 +1,13 @@
 ﻿using SentryQualityManagement.Core.CustomEntities;
 using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.QueryFilters;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SentryQualityManagement.Core.Interfaces
 {
-   public interface IAreaService
+    public interface IAreaService
     {
-        PagedList<Areas> GetAreas(AreaQueryFilter filters);
+        PagedList<Areas> GetAreas(IndicatorQueryFilter filters);
 
         Task<Areas> GetArea(int id);
 
