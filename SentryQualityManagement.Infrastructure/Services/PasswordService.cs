@@ -27,32 +27,28 @@ namespace SentryQualityManagement.Infrastructure.Services
                 var salt = Convert.FromBase64String(parts[1]);
                 var key = Convert.FromBase64String(parts[2]);
 
-                using (var algorithm = new Rfc2898DeriveBytes(
-                    password,
-                    salt,
-                    iterations
-                    ))
-                {
-                    var keyToCheck = algorithm.GetBytes(_options.KeySize);
-                    return keyToCheck.SequenceEqual(key);
-                }
-            }
+            using var algorithm = new Rfc2898DeriveBytes(
+                password,
+                salt,
+                iterations
+                );
+            var keyToCheck = algorithm.GetBytes(_options.KeySize);
+            return keyToCheck.SequenceEqual(key);
+        }
 
             public string Hash(string password)
             {
-                //PBKDF2 implementation
-                using (var algorithm = new Rfc2898DeriveBytes(
-                    password,
-                    _options.SaltSize,
-                    _options.Iterations
-                    ))
-                {
-                    var key = Convert.ToBase64String(algorithm.GetBytes(_options.KeySize));
-                    var salt = Convert.ToBase64String(algorithm.Salt);
+            //PBKDF2 implementation
+            using var algorithm = new Rfc2898DeriveBytes(
+                password,
+                _options.SaltSize,
+                _options.Iterations
+                );
+            var key = Convert.ToBase64String(algorithm.GetBytes(_options.KeySize));
+            var salt = Convert.ToBase64String(algorithm.Salt);
 
-                    return $"{_options.Iterations}.{salt}.{key}";
-                }
-            }
+            return $"{_options.Iterations}.{salt}.{key}";
+        }
         }
 }
 
