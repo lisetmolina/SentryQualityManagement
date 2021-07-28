@@ -6,7 +6,7 @@ namespace SentryQualityManagement.Core.Dtos
 {
     public class IndicatorTemplateDto
     {
-        public int IndicatorTemplateId { get; set; }
+        public int Id { get; set; }
         public string ElementName { get; set; }
         public int ElementValue { get; set; }
         public DateTime ElementDate { get; set; }

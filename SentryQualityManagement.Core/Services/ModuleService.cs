@@ -69,6 +69,6 @@ namespace SentryQualityManagement.Core.Services
             }
 
 
-        }
     }
+}
 

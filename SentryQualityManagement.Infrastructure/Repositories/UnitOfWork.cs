@@ -12,6 +12,10 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly IRepository<Users> _userRepository;
         private readonly IRepository<Modules> _modulerRepository;
         private readonly IRepository<Transactions> _transactionRepository;
+        private readonly IRepository<Periodicities> _periodicityRepository;
+        private readonly IRepository<IndicatorsTemplate> _indicatorTemplateRepository;
+
+
 
         public UnitOfWork(SentryQualityManagementContext context)
             
@@ -19,12 +23,11 @@ namespace SentryQualityManagement.Infrastructure.Repositories
             _context = context;
         }
         public IRepository<Roles> RoleRepository => _roleRepository ?? new BaseRepository<Roles>(_context);
-
         public IRepository<Users> UserRepository => _userRepository ?? new BaseRepository<Users>(_context);
-
         public IRepository<Modules> ModuleRepository => _modulerRepository ?? new BaseRepository<Modules>(_context);
-
         public IRepository<Transactions> TransactionRepository => _transactionRepository ?? new BaseRepository<Transactions>(_context);
+        public IRepository<Periodicities> PeriodicityRepository => _periodicityRepository ?? new BaseRepository<Periodicities>(_context);
+        public IRepository<IndicatorsTemplate> IndicatorTemplateRepository => _indicatorTemplateRepository ?? new BaseRepository<IndicatorsTemplate>(_context);
 
         IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
 

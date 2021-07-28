@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SentryQualityManagement.Core.Dtos
+namespace SentryQualityManagement.Core.QueryFilters
 {
-    public class PeriodicityDto
+    public class PeriodicityQueryFilter
     {
-        public int Id { get; set; }
         public string PeriodicityName { get; set; }
         public int PeriodicityValue { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
     }
 }
+

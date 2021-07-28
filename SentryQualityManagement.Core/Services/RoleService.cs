@@ -49,9 +49,9 @@ namespace SentryQualityManagement.Core.Services
         }
 
           public async Task InsertRole(Roles role)
-            {
+          {
                 await _unitOfWork.RoleRepository.Add(role);
-            }
+          }
 
             public async Task<bool> UpdateRole(Roles role)
             {

@@ -22,6 +22,12 @@ namespace SentryQualityManagement.Infrastructure.Mappings
 
             CreateMap<Transactions, TransactionDto>();
             CreateMap<TransactionDto, Transactions>();
+
+            CreateMap<Periodicities, PeriodicityDto>();
+            CreateMap<PeriodicityDto, Periodicities>();
+
+            CreateMap<IndicatorsTemplate, IndicatorTemplateDto>();
+            CreateMap<IndicatorTemplateDto, IndicatorsTemplate>();
         }
     }
 }
