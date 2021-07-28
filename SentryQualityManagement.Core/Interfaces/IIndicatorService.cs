@@ -11,7 +11,7 @@ namespace SentryQualityManagement.Core.Interfaces
 
         Task<Indicators> GetIndicator(int id);
 
-        Task InsertIndicator(Indicators Indicator);
+        Task InsertIndicator(Indicators indicator);
 
         Task<bool> UpdateIndicator(Indicators indicator);
 
