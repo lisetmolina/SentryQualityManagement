@@ -12,6 +12,6 @@ namespace SentryQualityManagement.Core.QueryFilters
         public int PageSize { get; set; }
 
         public int PageNumber { get; set; }
-        public string AreaName { get; internal set; }
+        public object AreaName { get; internal set; }
     }
 }

@@ -14,6 +14,7 @@ namespace SentryQualityManagement.Core.Interfaces
 
         IRepository<Indicators> IndicatorRepository { get; }
 
+        IRepository<IndicatorsResults> IndicatorResultRepository { get; }
         void SaveChanges();
 
         Task SaveChangesAsync();

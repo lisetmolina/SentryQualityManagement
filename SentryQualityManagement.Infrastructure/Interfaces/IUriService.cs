@@ -11,6 +11,8 @@ namespace SentryQualityManagement.Infrastructure.Interfaces
         Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl);
 
         Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl);
-        Uri GetIndicatorPaginationUri(IndicatorsQueryFilter filter, string actionUrl);
+
+        Uri GetIndicatorResultPaginationUri(IndicatorResultQueryFilter filter, string actionUrl);
+      
     }
 }
