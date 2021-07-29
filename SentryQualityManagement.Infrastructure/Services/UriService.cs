@@ -19,17 +19,23 @@ namespace SentryQualityManagement.Infrastructure.Services
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);
         }
-
-        public Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl)
-        {
-            string baseUrl = $"{_baseUri}{actionUrl}";
-            return new Uri(baseUrl);
-
-        }
-        public Uri GetIndicatorResultPaginationUri(IndicatorResultQueryFilter filter, string actionUrl)
+            public Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl)
             {
                 string baseUrl = $"{_baseUri}{actionUrl}";
                 return new Uri(baseUrl);
             }
+
+            public Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl)
+            {
+                string baseUrl = $"{_baseUri}{actionUrl}";
+                return new Uri(baseUrl);
+
+            }
+            public Uri GetIndicatorResultPaginationUri(IndicatorResultQueryFilter filter, string actionUrl)
+            {
+                string baseUrl = $"{_baseUri}{actionUrl}";
+                return new Uri(baseUrl);
+            }
+        
     }
-}
+}   

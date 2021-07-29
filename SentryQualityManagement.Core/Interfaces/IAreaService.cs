@@ -7,7 +7,7 @@ namespace SentryQualityManagement.Core.Interfaces
 {
     public interface IAreaService
     {
-        PagedList<Areas> GetAreas(IndicatorQueryFilter filters);
+        PagedList<Areas> GetAreas(AreaQueryFilter filters);
 
         Task<Areas> GetArea(int id);
 
@@ -16,6 +16,6 @@ namespace SentryQualityManagement.Core.Interfaces
         Task<bool> UpdateArea(Areas area);
 
         Task<bool> DeleteArea(int Id);
-
+       
     }
 }

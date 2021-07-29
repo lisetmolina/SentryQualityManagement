@@ -22,7 +22,7 @@ namespace SentryQualityManagement.Core.Services
         {
             return await _unitOfWork.AreaRepository.GetById(id);
         }
-        public PagedList<Areas> GetAreas(IndicatorQueryFilter filters)
+        public PagedList<Areas> GetAreas(AreaQueryFilter filters)
         {
             filters.PageNumber = filters.PageNumber == 0 ? _paginationOptions.DefaultPageNumber : filters.PageNumber;
             filters.PageSize = filters.PageSize == 0 ? _paginationOptions.DefaultPageSize : filters.PageSize;
@@ -32,7 +32,7 @@ namespace SentryQualityManagement.Core.Services
 
           if (filters.AreaName != null)
             {
-                areas = areas.Where(x => x.AreaName == (string) filters.AreaName);
+                areas = areas.Where(x => x.AreaName == filters.AreaName);
             }
 
                         
