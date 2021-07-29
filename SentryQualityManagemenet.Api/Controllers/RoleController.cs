@@ -35,7 +35,7 @@ namespace SentryQualityManagement.Api.Controllers
         [HttpGet(Name = nameof(GetRoles))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<RoleDto>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult GetRoles([FromQuery]RoleQueryFilter filters)
+        public IActionResult GetRoles([FromQuery]RoleQueryFilter filters) 
         {
             var roles = _roleService.GetRoles(filters);
             var rolesDtos = _mapper.Map<IEnumerable<RoleDto>>(roles);
