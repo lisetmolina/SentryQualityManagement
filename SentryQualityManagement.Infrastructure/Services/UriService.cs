@@ -26,7 +26,7 @@ namespace SentryQualityManagement.Infrastructure.Services
             return new Uri(baseUrl);
 
         }
-        public Uri GetIndicatorPaginationUri(IndicatorsQueryFilter filter, string actionUrl)
+        public Uri GetIndicatorResultPaginationUri(IndicatorResultQueryFilter filter, string actionUrl)
             {
                 string baseUrl = $"{_baseUri}{actionUrl}";
                 return new Uri(baseUrl);

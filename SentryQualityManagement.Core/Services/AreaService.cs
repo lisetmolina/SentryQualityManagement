@@ -30,14 +30,12 @@ namespace SentryQualityManagement.Core.Services
             var areas = _unitOfWork.AreaRepository.GetAll();
 
 
-
-            if (filters.AreaName != null)
+          if (filters.AreaName != null)
             {
-                areas = areas.Where(x => x.AreaName == filters.AreaName);
+                areas = areas.Where(x => x.AreaName == (string) filters.AreaName);
             }
 
-
-            
+                        
             var pagedAreas = PagedList<Areas>.Create(areas, filters.PageNumber, filters.PageSize);
             return pagedAreas;
 

@@ -13,4 +13,3 @@ namespace SentryQualityManagement.Core.QueryFilters
         public int PageNumber { get; set; }
     }
 }
-// aca se pone el id?

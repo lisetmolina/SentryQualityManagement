@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SentryQualityManagement.Core.Entities
 {
-    public partial class TransactionsModules
+    public partial class TransactionsModules : BaseEntity
     {
         public TransactionsModules()
         {
@@ -13,7 +13,7 @@ namespace SentryQualityManagement.Core.Entities
             RoleTransactions = new HashSet<RoleTransactions>();
         }
 
-        public int TransactionModuleId { get; set; }
+   
         public int TransactionId { get; set; }
         public int ModuleId { get; set; }
 
