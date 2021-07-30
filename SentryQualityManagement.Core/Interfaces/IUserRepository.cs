@@ -12,6 +12,7 @@ namespace SentryQualityManagement.Core.Interfaces
 
    }
 
+    }
        
     
 }
