@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SentryQualityManagement.Core.Enumerations;
+using System;
 using System.Collections.Generic;
 
 
@@ -13,7 +14,7 @@ namespace SentryQualityManagement.Core.Entities
             Users = new HashSet<Users>();
         }
 
-       
+        
         public string RoleName { get; set; }
         public string RoleDescription { get; set; }
         public bool? Active { get; set; }

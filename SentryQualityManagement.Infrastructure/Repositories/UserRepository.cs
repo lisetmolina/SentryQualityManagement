@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SentryQualityManagement.Infrastructure.Repositories
 {
-    class UserRepository :BaseRepository<Users>, IUserRepository
+    class UserRepository :BaseRepository<Users>, IUserRepository  
     { 
        public UserRepository(SentryQualityManagementContext context) : base(context) { }
 

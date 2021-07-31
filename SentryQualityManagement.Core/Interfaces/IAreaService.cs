@@ -16,6 +16,6 @@ namespace SentryQualityManagement.Core.Interfaces
         Task<bool> UpdateArea(Areas area);
 
         Task<bool> DeleteArea(int Id);
-
+       
     }
 }

@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Periodicities> builder)
         {
-           builder.HasKey(e => e.PeriodicityId)
+           builder.HasKey(e => e.Id)
                      .HasName("PK__Periodic__895C305DBC9624E6");
 
            builder.Property(e => e.PeriodicityName)

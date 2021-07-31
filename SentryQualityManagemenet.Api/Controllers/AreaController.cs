@@ -19,6 +19,7 @@ namespace SentryQualityManagemenet.Api.Controllers
     [ApiController]
     public class AreaController : ControllerBase
     {
+
     }
 }
 namespace SentryQualityManagement.Api.Controllers

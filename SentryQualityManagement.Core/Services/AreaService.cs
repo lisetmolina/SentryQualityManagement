@@ -32,6 +32,7 @@ namespace SentryQualityManagement.Core.Services
 
           if (filters.AreaName != null)
             {
+                areas = areas.Where(x => x.AreaName == filters.AreaName);
                 areas = areas.Where(x => x.AreaName == (string) filters.AreaName);
             }
 

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SentryQualityManagement.Core.Dtos
+namespace SentryQualityManagement.Core.QueryFilters
 {
-    public class ModuleDto
+    public class ModuleQueryFilter
     {
-        public int Id { get; set; }
         public string ModuleName { get; set; }
         public string ModuleDescription { get; set; }
+        public int PageSize { get; set; }
 
+        public int PageNumber { get; set; }
     }
 }

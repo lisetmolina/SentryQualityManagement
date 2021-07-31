@@ -12,7 +12,7 @@ namespace SentryQualityManagement.Core.Interfaces
 
         Task<Roles> GetRole(int id);
 
-        Task InsertRole(Roles Role);
+        Task InsertRole(Roles role);
 
         Task<bool> UpdateRole(Roles role);
 

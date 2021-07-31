@@ -22,15 +22,17 @@ namespace SentryQualityManagemenet.Api.Controllers
     [ApiController]
     public class IndicatorController : ControllerBase
     {
-    }
-    namespace SentryQualityManagement.Api.Controllers
-    {
-        [Authorize]
-        [Produces("application/json")]
-        [Route("api/[controller]")]
-        [ApiController]
 
-        public class IndicatorController : ControllerBase
+    }
+}
+namespace SentryQualityManagement.Api.Controllers
+{
+    [Authorize]
+    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [ApiController]
+
+    public class IndicatorController : ControllerBase
         {
             private readonly IIndicatorService _indicatorService;
             private readonly IMapper _mapper;
@@ -120,5 +122,5 @@ namespace SentryQualityManagemenet.Api.Controllers
             }
         }
 
+        }
     }
-}

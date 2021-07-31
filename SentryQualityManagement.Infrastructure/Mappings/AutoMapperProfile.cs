@@ -25,6 +25,27 @@ namespace SentryQualityManagement.Infrastructure.Mappings
 
             CreateMap<IndicatorsResults, IndicatorResultDto>();
             CreateMap<IndicatorResultDto, IndicatorsResults>();
+
+            CreateMap<Modules, ModuleDto>();
+            CreateMap<ModuleDto, Modules>();
+
+            CreateMap<Transactions, TransactionDto>();
+            CreateMap<TransactionDto, Transactions>();
+
+            CreateMap<Periodicities, PeriodicityDto>();
+            CreateMap<PeriodicityDto, Periodicities>();
+
+            CreateMap<IndicatorsTemplate, IndicatorTemplateDto>();
+            CreateMap<IndicatorTemplateDto, IndicatorsTemplate>();
+
+            CreateMap<Areas, AreaDto>();
+            CreateMap<AreaDto, Areas>();
+
+            CreateMap<Indicators, IndicatorDto>();
+            CreateMap<IndicatorDto, Indicators>();
+
+            CreateMap<IndicatorsResults, IndicatorResultDto>();
+            CreateMap<IndicatorResultDto, IndicatorsResults>();
         }
     }
 }
