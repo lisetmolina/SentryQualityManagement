@@ -19,7 +19,6 @@ namespace SentryQualityManagemenet.Api.Controllers
     [ApiController]
     public class AreaController : ControllerBase
     {
-
     }
 }
 namespace SentryQualityManagement.Api.Controllers
@@ -44,7 +43,7 @@ namespace SentryQualityManagement.Api.Controllers
         [HttpGet(Name = nameof(GetAreas))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<AreaDto>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult GetAreas([FromQuery] IndicatorQueryFilter filters)
+        public IActionResult GetAreas([FromQuery] AreaQueryFilter filters)
         {
             var areas = _areaService.GetAreas(filters);
             var areasDtos = _mapper.Map<IEnumerable<AreaDto>>(areas);
@@ -59,8 +58,8 @@ namespace SentryQualityManagement.Api.Controllers
                 TotalPages = areas.TotalPages,
                 HasNextPage = areas.HasNextPage,
                 HasPreviousPage = areas.HasPreviousPage,
-                NextPageUrl = _uriService.GetIndicatorPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString(),
-                PreviousPageUrl = _uriService.GetIndicatorPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString()
+                NextPageUrl = _uriService.GetAreaPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString(),
+                PreviousPageUrl = _uriService.GetAreaPaginationUri(filters, Url.RouteUrl(nameof(GetAreas))).ToString()
             };
 
             var response = new ApiResponse<IEnumerable<AreaDto>>(areasDtos)

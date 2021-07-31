@@ -29,8 +29,10 @@ namespace SentryQualityManagement.Infrastructure.Repositories
 
         public IRepository<IndicatorsResults> IndicatorResultRepository => _indicatorResultRepository ?? new BaseRepository<IndicatorsResults>(_context);
 
-        IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();  
-        
+        IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
+
+
+
         // Implementacion sugerida por el visual, nose si esta bien,preguntar...
 
         public void Dispose()

@@ -12,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace SentryQualityManagemenet.Api.Controllers
 {
-
-    public class TokenContoller : ControllerBase
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TokenContoller : Controller
     {
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
@@ -26,8 +27,8 @@ namespace SentryQualityManagemenet.Api.Controllers
         }
 
         [HttpPost]
-
-        public async Task< IActionResult>Authentication(UserLogin login)
+        [Route("Authentication")]
+        public async Task<IActionResult> Authentication(UserLogin login)
         {
             //if is valid user
             var validation = await IsValidUser(login);

@@ -31,5 +31,10 @@ namespace SentryQualityManagement.Infrastructure.Services
                 string baseUrl = $"{_baseUri}{actionUrl}";
                 return new Uri(baseUrl);
             }
+
+        public Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
