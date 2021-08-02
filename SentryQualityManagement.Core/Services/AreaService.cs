@@ -65,8 +65,5 @@ namespace SentryQualityManagement.Core.Services
         {
             throw new System.NotImplementedException();
         }
-
-       
-        
     }
 }

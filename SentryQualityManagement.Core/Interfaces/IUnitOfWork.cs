@@ -21,6 +21,6 @@ namespace SentryQualityManagement.Core.Interfaces
         IRepository<Periodicities> PeriodicityRepository { get; }
         IRepository<IndicatorsTemplate> IndicatorTemplateRepository { get; }
 
-
+        Task SaveChangesAsync();
     }   
 }

@@ -10,10 +10,6 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly SentryQualityManagementContext _context;
         private readonly IRepository<Roles> _roleRepository;
         private readonly IRepository<Users> _userRepository;
-        private readonly IRepository<Areas> _areaRepository;
-        private readonly IRepository<Indicators> _indicatorRepository;
-        private readonly IRepository<IndicatorsResults> _indicatorResultRepository;
-        private readonly IRepository<Areas> _arearepository;
         private readonly IRepository<Indicators> _indicatorrepository;
         private readonly IRepository<Modules> _modulerRepository;
         private readonly IRepository<Transactions> _transactionRepository;
@@ -35,13 +31,9 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         public IRepository<Transactions> TransactionRepository => _transactionRepository ?? new BaseRepository<Transactions>(_context);
         public IRepository<Periodicities> PeriodicityRepository => _periodicityRepository ?? new BaseRepository<Periodicities>(_context);
         public IRepository<IndicatorsTemplate> IndicatorTemplateRepository => _indicatorTemplateRepository ?? new BaseRepository<IndicatorsTemplate>(_context);
-
         public IRepository<Areas> AreaRepository => _areaRepository ?? new BaseRepository<Areas>(_context);
-
         public IRepository<Indicators> IndicatorRepository => _indicatorRepository ?? new BaseRepository<Indicators>(_context);
-
         public IRepository<IndicatorsResults> IndicatorResultRepository => _indicatorResultRepository ?? new BaseRepository<IndicatorsResults>(_context);
-
         IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
 
         public void Dispose()

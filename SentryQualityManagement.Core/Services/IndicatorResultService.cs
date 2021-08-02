@@ -51,20 +51,6 @@ namespace SentryQualityManagement.Core.Services
             await _unitOfWork.IndicatorResultRepository.Add(indicatorResult);
         }
 
-        public async Task<bool> UpdateArea(IndicatorsResults indicatorResult)
-        {
-            _unitOfWork.IndicatorResultRepository.Update(indicatorResult);
-            await _unitOfWork.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> DeleteIndicatorsResults(int id)
-        {
-            await _unitOfWork.IndicatorResultRepository.Delete(id);
-            await _unitOfWork.SaveChangesAsync();
-            return true;
-        }
-
         public Task InsertIndicatorResults(IndicatorsResults IndicatorResult)
         {
             throw new System.NotImplementedException();
