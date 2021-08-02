@@ -36,30 +36,25 @@ namespace SentryQualityManagement.Infrastructure.Services
                 string baseUrl = $"{_baseUri}{actionUrl}";
                 return new Uri(baseUrl);
             }
-        
-    }
-}   
-        public Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl)
+
+        public Uri GetModulePaginationUri(ModuleQueryFilter filter, string actionUrl)
         {
-            string baseUrl = $"{_baseUri}{actionUrl}";
-            return new Uri(baseUrl);
+            throw new NotImplementedException();
         }
 
-        public Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl)
+        public Uri GetTransactionPaginationUri(TransactionQueryFilter filter, string actionUrl)
         {
-            string baseUrl = $"{_baseUri}{actionUrl}";
-            return new Uri(baseUrl);
-
+            throw new NotImplementedException();
         }
-        public Uri GetIndicatorResultPaginationUri(IndicatorResultQueryFilter filter, string actionUrl)
-            {
-                string baseUrl = $"{_baseUri}{actionUrl}";
-                return new Uri(baseUrl);
-            }
 
-        public Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl)
+        public Uri GetPeriodicityPaginationUri(PeriodicityQueryFilter filter, string actionUrl)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Uri GetIndicatorTemplatePaginationUri(IndicatorTemplateQueryFilter filter, string actionUrl)
         {
             throw new NotImplementedException();
         }
     }
-}
+}   

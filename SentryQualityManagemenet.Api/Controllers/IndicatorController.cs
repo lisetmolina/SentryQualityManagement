@@ -120,7 +120,7 @@ namespace SentryQualityManagement.Api.Controllers
                 var response = new ApiResponse<bool>(result);
                 return Ok(response);
             }
-        }
-
-        }
     }
+
+        
+}
