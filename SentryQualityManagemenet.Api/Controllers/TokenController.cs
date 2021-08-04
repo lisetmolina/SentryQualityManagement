@@ -26,7 +26,7 @@ namespace SentryQualityManagemenet.Api.Controllers
         }
 
         [HttpPost]
-
+        [Route("Authentication")]
         public async Task<IActionResult> Authentication(UserLogin login)
         {
             //if is valid user

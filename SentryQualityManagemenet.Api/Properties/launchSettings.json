@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/SentryQualityManagemenet.Api",
+      "applicationUrl": "http://localhost/SentryQualityManagemenet",
       "sslPort": 0
     },
     "iisExpress": {

@@ -14,9 +14,11 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly IRepository<Transactions> _transactionRepository;
         private readonly IRepository<Periodicities> _periodicityRepository;
         private readonly IRepository<IndicatorsTemplate> _indicatorTemplateRepository;
-
-
-
+        private readonly IRepository<Areas> _areaRepository;
+        private readonly IRepository<Indicators> _indicatorRepository;
+        private readonly IRepository<IndicatorsResults> _indicatorResultRepository;
+        private readonly IRepository<TransactionsModules> _transactionModuleReposiory;
+        private readonly IRepository<RoleTransactions> _roleTransactionRepository;
         public UnitOfWork(SentryQualityManagementContext context)
             
         {
@@ -27,6 +29,13 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         public IRepository<Transactions> TransactionRepository => _transactionRepository ?? new BaseRepository<Transactions>(_context);
         public IRepository<Periodicities> PeriodicityRepository => _periodicityRepository ?? new BaseRepository<Periodicities>(_context);
         public IRepository<IndicatorsTemplate> IndicatorTemplateRepository => _indicatorTemplateRepository ?? new BaseRepository<IndicatorsTemplate>(_context);
+        public IRepository<Areas> AreaRepository => _areaRepository ?? new BaseRepository<Areas>(_context);
+        public IRepository<Indicators> IndicatorRepository => _indicatorRepository ?? new BaseRepository<Indicators>(_context);
+        public IRepository<IndicatorsResults> IndicatorResultRepository => _indicatorResultRepository ?? new BaseRepository<IndicatorsResults>(_context);
+        public IRepository<TransactionsModules> TransactionModuleRepository => _transactionModuleReposiory ?? new BaseRepository<TransactionsModules>(_context);
+        public IRepository<RoleTransactions> RoleTransactionRepository => _roleTransactionRepository ?? new BaseRepository<RoleTransactions>(_context);
+
+       
         public IUserRepository UserRepository => _userRepository ?? new UserRepository(_context);
 
 
@@ -44,9 +53,9 @@ namespace SentryQualityManagement.Infrastructure.Repositories
             _context.SaveChanges();
         }
 
-        public async Task SaveChangesAsync()
+        public Task SaveChangesAsync()
         {
-           await _context.SaveChangesAsync();
+            throw new System.NotImplementedException();
         }
     }
 }
