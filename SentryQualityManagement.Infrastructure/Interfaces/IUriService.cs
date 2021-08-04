@@ -16,11 +16,9 @@ namespace SentryQualityManagement.Infrastructure.Interfaces
         Uri GetTransactionPaginationUri(TransactionQueryFilter filter, string actionUrl);
         Uri GetPeriodicityPaginationUri(PeriodicityQueryFilter filter, string actionUrl);
         Uri GetIndicatorTemplatePaginationUri(IndicatorTemplateQueryFilter filter, string actionUrl);
+        Uri GetTransactionModulePaginationUri(TransactionModuleQueryFilter filter, string actionUrl);
+        Uri GetRoleTransactionPaginationUri(RoleTransactionQueryFilter filter, string actionUrl);
 
 
-
-
-       
-      
     }
 }

@@ -36,6 +36,17 @@ namespace SentryQualityManagement.Infrastructure.Services
                 string baseUrl = $"{_baseUri}{actionUrl}";
                 return new Uri(baseUrl);
             }
+            public Uri GetTransactionModulePaginationUri(TransactionModuleQueryFilter filter, string actionUrl)
+            {
+            string baseUrl = $"{_baseUri}{actionUrl}";
+            return new Uri(baseUrl);
+            }
+
+          public Uri GetRoleTransactionPaginationUri(RoleTransactionQueryFilter filter, string actionUrl)
+          {
+            string baseUrl = $"{_baseUri}{actionUrl}";
+            return new Uri(baseUrl);
+          }
 
         public Uri GetModulePaginationUri(ModuleQueryFilter filter, string actionUrl)
         {

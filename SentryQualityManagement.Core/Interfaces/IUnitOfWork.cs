@@ -20,7 +20,8 @@ namespace SentryQualityManagement.Core.Interfaces
         IRepository<Transactions> TransactionRepository { get; }
         IRepository<Periodicities> PeriodicityRepository { get; }
         IRepository<IndicatorsTemplate> IndicatorTemplateRepository { get; }
-
+        IRepository<TransactionsModules> TransactionModuleRepository { get; }
+        IRepository<RoleTransactions> RoleTransactionRepository { get; }
         Task SaveChangesAsync();
     }   
 }

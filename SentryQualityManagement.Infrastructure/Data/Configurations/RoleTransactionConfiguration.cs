@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<RoleTransactions> builder)
         {
-           builder.HasKey(e => e.RoleTransactionId)
+           builder.HasKey(e => e.Id)
                        .HasName("PK__RoleTran__9360F7CE42928410");
 
            builder.HasOne(d => d.Role)

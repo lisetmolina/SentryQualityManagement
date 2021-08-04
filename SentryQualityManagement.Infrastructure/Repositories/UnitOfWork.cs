@@ -10,7 +10,6 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly SentryQualityManagementContext _context;
         private readonly IRepository<Roles> _roleRepository;
         private readonly IRepository<Users> _userRepository;
-        private readonly IRepository<Indicators> _indicatorrepository;
         private readonly IRepository<Modules> _modulerRepository;
         private readonly IRepository<Transactions> _transactionRepository;
         private readonly IRepository<Periodicities> _periodicityRepository;
@@ -18,8 +17,8 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         private readonly IRepository<Areas> _areaRepository;
         private readonly IRepository<Indicators> _indicatorRepository;
         private readonly IRepository<IndicatorsResults> _indicatorResultRepository;
-
-
+        private readonly IRepository<TransactionsModules> _transactionModuleReposiory;
+        private readonly IRepository<RoleTransactions> _roleTransactionRepository;
         public UnitOfWork(SentryQualityManagementContext context)
             
         {
@@ -34,6 +33,11 @@ namespace SentryQualityManagement.Infrastructure.Repositories
         public IRepository<Areas> AreaRepository => _areaRepository ?? new BaseRepository<Areas>(_context);
         public IRepository<Indicators> IndicatorRepository => _indicatorRepository ?? new BaseRepository<Indicators>(_context);
         public IRepository<IndicatorsResults> IndicatorResultRepository => _indicatorResultRepository ?? new BaseRepository<IndicatorsResults>(_context);
+        public IRepository<TransactionsModules> TransactionModuleRepository => _transactionModuleReposiory ?? new BaseRepository<TransactionsModules>(_context);
+        public IRepository<RoleTransactions> RoleTransactionRepository => _roleTransactionRepository ?? new BaseRepository<RoleTransactions>(_context);
+
+       
+
         IUserRepository IUnitOfWork.UserRepository => throw new System.NotImplementedException();
 
         public void Dispose()

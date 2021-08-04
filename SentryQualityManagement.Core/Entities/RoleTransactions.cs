@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace SentryQualityManagement.Core.Entities
 {
-    public partial class RoleTransactions
+    public partial class RoleTransactions : BaseEntity
     {
-        public int RoleTransactionId { get; set; }
+        
         public int RoleId { get; set; }
         public int TransactionModuleId { get; set; }
 
