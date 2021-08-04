@@ -8,9 +8,7 @@ using SentryQualityManagement.Core.Dtos;
 using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
-using SentryQualityManagement.Core.Services;
 using SentryQualityManagement.Infrastructure.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,7 +20,6 @@ namespace SentryQualityManagemenet.Api.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-
 
     public class PeriodicityController : ControllerBase
     {
@@ -114,3 +111,4 @@ namespace SentryQualityManagemenet.Api.Controllers
         }
     }
 }
+

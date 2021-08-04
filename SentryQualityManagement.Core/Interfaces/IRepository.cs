@@ -16,6 +16,7 @@ namespace SentryQualityManagement.Core.Interfaces
         void Update(T entity);
 
         Task Delete(int Id);
-     
+
+
     }
 }

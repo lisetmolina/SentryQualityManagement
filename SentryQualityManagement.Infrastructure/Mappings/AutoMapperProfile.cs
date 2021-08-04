@@ -12,22 +12,18 @@ namespace SentryQualityManagement.Infrastructure.Mappings
     {
         public AutoMapperProfile()
         {
-            CreateMap<Roles,RoleDto>();
-            CreateMap<RoleDto,Roles>();
-
+            CreateMap<Roles,RoleDto>().ReverseMap();
+     
             CreateMap<Users, UserDto>().ReverseMap();
 
-            CreateMap<Modules, ModuleDto>();
-            CreateMap<ModuleDto, Modules>();
-
-            CreateMap<Transactions, TransactionDto>();
-            CreateMap<TransactionDto, Transactions>();
-
-            CreateMap<Periodicities, PeriodicityDto>();
-            CreateMap<PeriodicityDto, Periodicities>();
-
-            CreateMap<IndicatorsTemplate, IndicatorTemplateDto>();
-            CreateMap<IndicatorTemplateDto, IndicatorsTemplate>();
+            CreateMap<Modules, ModuleDto>().ReverseMap();
+            
+            CreateMap<Transactions, TransactionDto>().ReverseMap();
+          
+            CreateMap<Periodicities, PeriodicityDto>().ReverseMap();
+        
+            CreateMap<IndicatorsTemplate, IndicatorTemplateDto>().ReverseMap();
+            
         }
     }
 }

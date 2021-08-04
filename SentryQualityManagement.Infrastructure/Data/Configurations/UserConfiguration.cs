@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SentryQualityManagement.Core.Entities;
-using SentryQualityManagement.Core.Enumerations;
-using System;
 
 namespace SentryQualityManagement.Infrastructure.Data.Configurations
 {
@@ -38,12 +36,8 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
             builder.Property(e => e.RoleId)
 
               .HasMaxLength(50)
-              .IsRequired()
-              .HasConversion(
-                x => x.ToString(),
-                x => (RoleType)Enum.Parse(typeof(RoleType), x)
-                );
-
+              .IsRequired();
+              
 
 
         }

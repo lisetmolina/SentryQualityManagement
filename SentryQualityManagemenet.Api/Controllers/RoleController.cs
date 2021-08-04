@@ -13,14 +13,12 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace SentryQualityManagement.Api.Controllers
-{   
+namespace SentryQualityManagemenet.Api.Controllers
+{
     [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    
-
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _roleService;
@@ -35,11 +33,11 @@ namespace SentryQualityManagement.Api.Controllers
         [HttpGet(Name = nameof(GetRoles))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<RoleDto>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult GetRoles([FromQuery]RoleQueryFilter filters)
+        public IActionResult GetRoles([FromQuery] RoleQueryFilter filters)
         {
             var roles = _roleService.GetRoles(filters);
             var rolesDtos = _mapper.Map<IEnumerable<RoleDto>>(roles);
-           
+
 
             var metadata = new Metadata
             {
@@ -63,7 +61,7 @@ namespace SentryQualityManagement.Api.Controllers
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
             return Ok(response);
 
-           
+
         }
 
         [HttpGet("{id}")]
@@ -82,7 +80,7 @@ namespace SentryQualityManagement.Api.Controllers
         public async Task<IActionResult> Post(RoleDto roleDto)
         {
             var role = _mapper.Map<Roles>(roleDto);
-            
+
             await _roleService.InsertRole(role);
 
             roleDto = _mapper.Map<RoleDto>(role);
@@ -96,7 +94,7 @@ namespace SentryQualityManagement.Api.Controllers
             var role = _mapper.Map<Roles>(roleDto);
             role.Id = id;
 
-            var result= await _roleService.UpdateRole(role);
+            var result = await _roleService.UpdateRole(role);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }
@@ -104,7 +102,7 @@ namespace SentryQualityManagement.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-         
+
             var result = await _roleService.DeleteRole(id);
             var response = new ApiResponse<bool>(result);
             return Ok(response);

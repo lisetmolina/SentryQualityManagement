@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SentryQualityManagement.Core": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
