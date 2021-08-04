@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace SentryQualityManagement.Core.Interfaces
 {
-   public interface IUserRepository : IRepository<Users>
-   {
-    Task<Users> GetLoginByCredentials(UserLogin login);
+    public interface IUserRepository : IRepository<Users>
+    {
+        Task<Users> GetLoginByCredentials(UserLogin login);
 
-   }
-
-    
-       
-    
+    }
 }

@@ -19,7 +19,8 @@
       "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": true
     },
     "SentryQualityManagemenet.Api": {
       "commandName": "Project",

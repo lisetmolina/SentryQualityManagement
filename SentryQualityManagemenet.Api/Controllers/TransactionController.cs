@@ -9,20 +9,16 @@ using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace SentryQualityManagement.Api.Controllers
+namespace SentryQualityManagemenet.Api.Controllers
 {
     [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-
-
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionService _transactionService;

@@ -9,25 +9,25 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace SentryQualityManagemenet.Api.Controllers
 {
-
-    public class TokenContoller : ControllerBase
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TokenController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
         private readonly IPasswordService _passwordService;
-        public TokenContoller(IConfiguration configuration, IUserService userService, IPasswordService passwordService)
-        { 
-         _configuration = configuration;
-         _userService = userService;
-         _passwordService = passwordService;
+        public TokenController(IConfiguration configuration, IUserService userService, IPasswordService passwordService)
+        {
+            _configuration = configuration;
+            _userService = userService;
+            _passwordService = passwordService;
         }
 
         [HttpPost]
 
-        public async Task< IActionResult>Authentication(UserLogin login)
+        public async Task<IActionResult> Authentication(UserLogin login)
         {
             //if is valid user
             var validation = await IsValidUser(login);
@@ -40,11 +40,11 @@ namespace SentryQualityManagemenet.Api.Controllers
             return NotFound();
 
         }
-        private async Task<(bool,Users)> IsValidUser(UserLogin login)
+        private async Task<(bool, Users)> IsValidUser(UserLogin login)
         {
             var user = await _userService.GetLoginByCredentials(login);
             var isValid = _passwordService.Check(user.UserPassword, login.Password);
-            return (isValid,user);
+            return (isValid, user);
         }
 
         private string GenerateToken(Users user)
@@ -58,7 +58,7 @@ namespace SentryQualityManagemenet.Api.Controllers
             var claims = new[]
             {
                 new  Claim(ClaimTypes.Name, user.UserName),
-                new  Claim("User",user.Email),
+                new  Claim("User",user.UserName),
                 new  Claim(ClaimTypes.Role, user.Role.ToString()),
             };
 
@@ -72,11 +72,10 @@ namespace SentryQualityManagemenet.Api.Controllers
                 DateTime.UtcNow.AddMinutes(10)
             );
 
-             var  token = new JwtSecurityToken(header,payload);
-            
-              return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = new JwtSecurityToken(header, payload);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+
         }
-
-
     }
 }

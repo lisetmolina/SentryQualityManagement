@@ -49,5 +49,6 @@ namespace SentryQualityManagement.Infrastructure.Repositories
             _entities.Remove(entity);
             
         }
+
     }
 }
