@@ -13,7 +13,6 @@ namespace SentryQualityManagement.Infrastructure.Repositories
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly SentryQualityManagementContext _context;
-
         protected DbSet<T> _entities;
 
         public BaseRepository(SentryQualityManagementContext context)

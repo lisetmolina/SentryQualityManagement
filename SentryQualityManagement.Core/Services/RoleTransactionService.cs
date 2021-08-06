@@ -30,10 +30,10 @@ namespace SentryQualityManagement.Core.Services
             var roleTransactions = _unitOfWork.RoleTransactionRepository.GetAll();
 
 
-            /*if (filters.RoleTransactionId != null)
+            if (filters.Id != 0)
             {
-               roleTransactionId = roleTransactionId.Where(x => x.RoleTransactionId == filters.RoleTransactionId);
-            }*/
+               roleTransactions = roleTransactions.Where(x => x.Id == filters.Id);
+            }
 
             var pagedRoleTransactions = PagedList<RoleTransactions>.Create(roleTransactions, filters.PageNumber, filters.PageSize);
             return pagedRoleTransactions;

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentryQualityManagemenet.Api", "SentryQualityManagemenet.Api\SentryQualityManagemenet.Api.csproj", "{3DAC5BF5-D6AD-4596-A9BE-CA741AC24B14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentryQualityManagement.Api", "SentryQualityManagemenet.Api\SentryQualityManagement.Api.csproj", "{3DAC5BF5-D6AD-4596-A9BE-CA741AC24B14}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentryQualityManagement.Core", "SentryQualityManagement.Core\SentryQualityManagement.Core.csproj", "{9BC494F6-3D7E-4699-A925-39DAB0D94C3E}"
 EndProject

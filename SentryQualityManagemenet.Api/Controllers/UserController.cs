@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SentryQualityManagement.Api.Responses;
@@ -9,6 +10,7 @@ using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -73,13 +75,21 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Post(UserDto userDto)
         {
             var user = _mapper.Map<Users>(userDto);
-
-            user.UserPassword = _passwordService.Hash(user.UserPassword);
-            await _userService.RegisterUser(user);
-
-            userDto = _mapper.Map<UserDto>(user);
             var response = new ApiResponse<UserDto>(userDto);
+            try
+            {
+                user.UserPassword = _passwordService.Hash(user.UserPassword);
+                await _userService.RegisterUser(user);
+                userDto = _mapper.Map<UserDto>(user);
+                response = new ApiResponse<UserDto>(userDto);
+            }
+            catch (Exception ex)
+            {
+              return Ok(response);
+            }
+            
             return Ok(response);
+
         }
 
         [HttpPut]

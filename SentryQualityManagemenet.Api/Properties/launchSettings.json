@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/SentryQualityManagemenet",
+      "applicationUrl": "https://localhost/SentryQualityManagement",
       "sslPort": 0
     },
     "iisExpress": {
@@ -37,7 +37,8 @@
       "environmentVariables": {
         "Key": "Value",
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "jsWebView2Debugging": true
     }
   }
 }

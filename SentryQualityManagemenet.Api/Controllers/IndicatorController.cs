@@ -16,15 +16,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace SentryQualityManagemenet.Api.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class IndicatorController : ControllerBase
-    {
 
-    }
-}
 namespace SentryQualityManagement.Api.Controllers
 {
     [Authorize]

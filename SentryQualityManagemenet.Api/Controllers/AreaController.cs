@@ -13,15 +13,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace SentryQualityManagemenet.Api.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AreaController : ControllerBase
-    {
 
-    }
-}
 namespace SentryQualityManagement.Api.Controllers
 {
     [Authorize]

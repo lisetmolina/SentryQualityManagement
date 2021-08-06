@@ -13,21 +13,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace SentryQualityManagemenet.Api.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class IndicatorResultController : ControllerBase
-    {
-    }
-    namespace SentryQualityManagemenet.Api.Controllers
-    {
-        [Route("api/[controller]")]
-        [ApiController]
-        public class IndicatorResultController : ControllerBase
-        {
-}
-    }
+
 namespace SentryQualityManagement.Api.Controllers
 {
     [Authorize]
@@ -126,5 +112,4 @@ namespace SentryQualityManagement.Api.Controllers
             return Ok(response);
         }
     }
-}
 }

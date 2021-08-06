@@ -9,6 +9,7 @@ namespace SentryQualityManagement.Infrastructure.Interfaces
     public interface IUriService
     {
         Uri GetRolePaginationUri(RoleQueryFilter filter, string actionUrl);
+        Uri GetUserPaginationUri(UserQueryFilter filter, string actionUrl);
         Uri GetAreaPaginationUri(AreaQueryFilter filter, string actionUrl);
         Uri GetIndicatorPaginationUri(IndicatorQueryFilter filter, string actionUrl);
         Uri GetIndicatorResultPaginationUri(IndicatorResultQueryFilter filter, string actionUrl); 

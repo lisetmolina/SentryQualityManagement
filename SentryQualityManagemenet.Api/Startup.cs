@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 using System.Text;
 
-namespace SentryQualityManagemenet.Api
+namespace SentryQualityManagement.Api
 {
     public class Startup
     {
@@ -89,8 +89,8 @@ namespace SentryQualityManagemenet.Api
 
             app.UseSwaggerUI(options => {
 
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Sentry Quality Management API");
-                options.RoutePrefix = string.Empty;
+                options.SwaggerEndpoint("../swagger/v1/swagger.json", "Sentry Quality Management API");
+                //options.RoutePrefix = string.Empty;
             
             });
 
