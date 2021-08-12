@@ -60,7 +60,7 @@ namespace SentryQualityManagemenet.Api.Controllers
             var claims = new[]
             {
                 new  Claim(ClaimTypes.Name, user.UserName),
-                new  Claim("User",user.UserName),
+                new  Claim(ClaimTypes.Email,user.Email),
                 new  Claim(ClaimTypes.Role, user.Role.ToString()),
             };
 

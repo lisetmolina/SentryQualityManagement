@@ -37,6 +37,8 @@
     <ProjectReference Include="..\SentryQualityManagement.Core\SentryQualityManagement.Core.csproj" />
     <ProjectReference Include="..\SentryQualityManagement.Infrastructure\SentryQualityManagement.Infrastructure.csproj" />
   </ItemGroup>
+	
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 
 </Project>

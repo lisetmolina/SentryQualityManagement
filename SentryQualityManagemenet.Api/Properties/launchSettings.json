@@ -38,7 +38,8 @@
         "Key": "Value",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "jsWebView2Debugging": true
+      "ancmHostingModel": "OutOfProcess",
+      "jsWebView2Debugging": false
     }
   }
 }
