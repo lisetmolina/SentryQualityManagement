@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Transactions> builder)
         {
-            builder.HasKey(e => e.Id)
+            builder.HasKey(e => e.TransactionId)
                        .HasName("PK__Transact__55433A6B46B4AA4A");
 
             builder.Property(e => e.TransactionName)

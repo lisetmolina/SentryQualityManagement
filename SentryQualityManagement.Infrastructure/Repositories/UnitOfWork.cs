@@ -55,7 +55,7 @@ namespace SentryQualityManagement.Infrastructure.Repositories
 
         public Task SaveChangesAsync()
         {
-            throw new System.NotImplementedException();
+            return _context.SaveChangesAsync();
         }
     }
 }

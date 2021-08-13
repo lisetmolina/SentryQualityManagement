@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Users> builder)
         {
-            builder.HasKey(e => e.Id)
+            builder.HasKey(e => e.UserId)
                       .HasName("PK__Users__1788CC4C403A2F25");
 
             builder.Property(e => e.Active).HasDefaultValueSql("((0))");

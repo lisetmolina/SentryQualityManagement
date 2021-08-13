@@ -92,7 +92,7 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Put(int id, RoleDto roleDto)
         {
             var role = _mapper.Map<Roles>(roleDto);
-            role.Id = id;
+            role.RoleId = id;
 
             var result = await _roleService.UpdateRole(role);
             var response = new ApiResponse<bool>(result);

@@ -12,8 +12,9 @@ namespace SentryQualityManagement.Core.Entities
             LogTransactionals = new HashSet<LogTransactionals>();
             RoleTransactions = new HashSet<RoleTransactions>();
         }
+        
 
-   
+        public int TransactionModuleId { get; set; }
         public int TransactionId { get; set; }
         public int ModuleId { get; set; }
 

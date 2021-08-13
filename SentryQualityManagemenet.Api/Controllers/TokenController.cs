@@ -33,13 +33,13 @@ namespace SentryQualityManagemenet.Api.Controllers
         {
             //if is valid user
             var validation = await IsValidUser(login);
-            if (validation.Item1)
+            
+            if (!validation.Item1)
             {
-                var token = GenerateToken(validation.Item2);
-                return Ok(new { token });
+                return NotFound("User or password Error, please check the data entered");
             }
-
-            return NotFound();
+            var token = GenerateToken(validation.Item2);
+            return Ok(token);
 
         }
         private async Task<(bool, Users)> IsValidUser(UserLogin login)
@@ -57,11 +57,12 @@ namespace SentryQualityManagemenet.Api.Controllers
             var header = new JwtHeader(signingCredentials);
 
             // Claims
-            var claims = new[]
+            var claims = new []
             {
                 new  Claim(ClaimTypes.Name, user.UserName),
-                new  Claim(ClaimTypes.Email,user.Email),
-                new  Claim(ClaimTypes.Role, user.Role.ToString()),
+                new  Claim(ClaimTypes.PrimarySid,$"{user.UserId}"),
+                new  Claim(ClaimTypes.Role, user.Role != null? user.Role.ToString(): "0"),
+                new  Claim(ClaimTypes.Email, user.Email),
             };
 
             //Payload

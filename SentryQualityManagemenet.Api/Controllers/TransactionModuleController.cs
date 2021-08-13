@@ -89,7 +89,7 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Put(int id, TransactionModuleDto transactionModuleDto)
         {
             var transactionModule = _mapper.Map<TransactionsModules>(transactionModuleDto);
-            transactionModule.Id = id;
+            transactionModule.TransactionId = id;
 
             var result = await _transactionModuleService.UpdateTransactionModule(transactionModule);
             var response = new ApiResponse<bool>(result);
