@@ -39,7 +39,7 @@ namespace SentryQualityManagemenet.Api.Controllers
                 return NotFound("User or password Error, please check the data entered");
             }
             var token = GenerateToken(validation.Item2);
-            return Ok(token);
+            return Ok(new { token });
 
         }
         private async Task<(bool, Users)> IsValidUser(UserLogin login)
@@ -65,11 +65,12 @@ namespace SentryQualityManagemenet.Api.Controllers
                 new  Claim(ClaimTypes.Email, user.Email),
             };
 
+
             //Payload
             var payload = new JwtPayload
             (
-                _configuration["Autenticación:Issuer"],
-                _configuration["Autenticación:Audience"],
+                _configuration["Authentication:Issuer"],
+                _configuration["Authentication:Audience"],
                 claims,
                 DateTime.Now,
                 DateTime.UtcNow.AddMinutes(10)

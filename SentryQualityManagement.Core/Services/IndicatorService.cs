@@ -42,10 +42,6 @@ namespace SentryQualityManagement.Core.Services
 
         }
 
-        public async Task InsertIndicators(Indicators indicator)
-        {
-            await _unitOfWork.IndicatorRepository.Add(indicator);
-        }
 
         public async Task<bool> UpdateIndicator(Indicators indicator)
         {
@@ -61,9 +57,10 @@ namespace SentryQualityManagement.Core.Services
             return true;
         }
 
-        public Task InsertIndicator(Indicators Indicator)
+        public async Task InsertIndicator(Indicators Indicator)
         {
-            throw new System.NotImplementedException();
+            await _unitOfWork.IndicatorRepository.Add(Indicator);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }

@@ -9,6 +9,7 @@ using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -81,11 +82,21 @@ namespace SentryQualityManagemenet.Api.Controllers
         {
             var role = _mapper.Map<Roles>(roleDto);
 
-            await _roleService.InsertRole(role);
+            try
+            {
+                await _roleService.InsertRole(role);
 
-            roleDto = _mapper.Map<RoleDto>(role);
-            var response = new ApiResponse<RoleDto>(roleDto);
-            return Ok(response);
+                roleDto = _mapper.Map<RoleDto>(role);
+                var response = new ApiResponse<RoleDto>(roleDto);
+                return Ok(response);
+
+            }
+            catch(Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new role: {ex.Message}");
+            }
+
+
         }
 
         [HttpPut]

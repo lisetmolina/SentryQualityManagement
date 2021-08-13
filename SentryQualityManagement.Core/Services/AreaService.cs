@@ -45,6 +45,7 @@ namespace SentryQualityManagement.Core.Services
         public async Task InsertAreas(Areas area)
         {
             await _unitOfWork.AreaRepository.Add(area);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdateArea(Areas area)
