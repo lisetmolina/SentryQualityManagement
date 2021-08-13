@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<IndicatorsTemplate> builder)
         {
-            builder.HasKey(e => e.Id)
+            builder.HasKey(e => e.IndicatorTemplateId)
                       .HasName("PK__Indicato__AE06CCA6E8E4772D");
 
             builder.Property(e => e.ElementDate).HasColumnType("datetime");

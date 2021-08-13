@@ -85,7 +85,7 @@ namespace SentryQualityManagemenet.Api.Controllers
             }
             catch (Exception ex)
             {
-              return Ok(response);
+              return BadRequest(ex.Message);
             }
             
             return Ok(response);
@@ -96,7 +96,7 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Put(int id, UserDto userDto)
         {
             var user = _mapper.Map<Users>(userDto);
-            user.Id = id;
+            user.UserId = id;
 
             var result = await _userService.UpdateUser(user);
             var response = new ApiResponse<bool>(result);

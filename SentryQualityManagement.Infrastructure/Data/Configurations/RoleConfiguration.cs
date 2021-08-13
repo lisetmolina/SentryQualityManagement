@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Roles> builder)
         {
-            builder.HasKey(e => e.Id)
+            builder.HasKey(e => e.RoleId)
                    .HasName("PK__Roles__8AFACE1A09283CEA");
 
             builder.Property(e => e.Active).HasDefaultValueSql("((0))");

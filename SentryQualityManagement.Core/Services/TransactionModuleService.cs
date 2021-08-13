@@ -34,7 +34,7 @@ namespace SentryQualityManagement.Core.Services
 
       if (filters.Id != 0) 
         {
-            transactionsModules = transactionsModules.Where(x => x.Id == filters.Id);
+            transactionsModules = transactionsModules.Where(x => x.ModuleId == filters.Id);
         }
 
         var pagedTransactionsModules = PagedList<TransactionsModules>.Create(transactionsModules, filters.PageNumber, filters.PageSize);

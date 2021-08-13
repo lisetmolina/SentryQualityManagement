@@ -1,6 +1,8 @@
-﻿namespace SentryQualityManagement.Core.CustomEntities
+﻿using SentryQualityManagement.Core.Interfaces;
+
+namespace SentryQualityManagement.Core.CustomEntities
 {
-    public class PaginationOptions
+    public class PaginationOptions: IPaginationOptions
     {
         public int DefaultPageSize { get; set; }
 

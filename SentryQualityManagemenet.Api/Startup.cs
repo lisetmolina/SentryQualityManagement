@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using SentryQualityManagement.Infrastructure.Extensions;
 using SentryQualityManagement.Infrastructure.Filters;
+using SentryQualityManagement.Infrastructure.Interfaces;
+using SentryQualityManagement.Infrastructure.Options;
 using System;
 using System.Reflection;
 using System.Text;
@@ -16,12 +18,13 @@ namespace SentryQualityManagement.Api
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -40,6 +43,8 @@ namespace SentryQualityManagement.Api
              {
                 //options.SuppressModelStateInvalidFilter = true;
             });
+
+            
 
             services.AddOptions(Configuration);
             services.AddDbContexts(Configuration);

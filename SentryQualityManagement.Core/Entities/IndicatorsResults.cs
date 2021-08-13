@@ -7,7 +7,8 @@ namespace SentryQualityManagement.Core.Entities
 {
     public partial class IndicatorsResults : BaseEntity
     {
-        
+
+        public int IndicatorsResultId { get; set; }
         public int Formula { get; set; }
         public DateTime IndicatorResultDate { get; set; }
         public int Result { get; set; }
