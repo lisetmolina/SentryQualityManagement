@@ -18,13 +18,13 @@ namespace SentryQualityManagement.Api
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -57,6 +57,7 @@ namespace SentryQualityManagement.Api
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -91,11 +92,10 @@ namespace SentryQualityManagement.Api
             app.UseHttpsRedirection();
 
             app.UseSwagger();
-
             app.UseSwaggerUI(options => {
 
-                options.SwaggerEndpoint("../swagger/v1/swagger.json", "Sentry Quality Management API");
-                //options.RoutePrefix = string.Empty;
+                options.SwaggerEndpoint("../swagger/v1/swagger.json", "Sentry Quality Management API V1");
+                options.RoutePrefix = string.Empty;
             
             });
 

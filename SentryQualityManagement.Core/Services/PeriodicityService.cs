@@ -48,6 +48,7 @@ namespace SentryQualityManagement.Core.Services
         public async Task InsertPeriodicity(Periodicities periodicity)
         {
             await _unitOfWork.PeriodicityRepository.Add(periodicity);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdatePeriodicity(Periodicities periodicity)

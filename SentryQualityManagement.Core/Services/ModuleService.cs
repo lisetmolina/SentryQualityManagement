@@ -52,7 +52,8 @@ namespace SentryQualityManagement.Core.Services
             public async Task InsertModule(Modules module)
             {
                 await _unitOfWork.ModuleRepository.Add(module);
-            }
+            await _unitOfWork.SaveChangesAsync();
+        }
 
             public async Task<bool> UpdateModule(Modules module)
             {

@@ -53,6 +53,7 @@ namespace SentryQualityManagement.Core.Services
         public async Task InsertUser(Users user)
         {
             await _unitOfWork.UserRepository.Add(user);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdateUser(Users user)

@@ -40,10 +40,6 @@ namespace SentryQualityManagement.Core.Services
 
         }
 
-        public async Task InsertRoleTransactions(RoleTransactions roleTransaction)
-        {
-            await _unitOfWork.RoleTransactionRepository.Add(roleTransaction);
-        }
 
         public async Task<bool> UpdateRoleTransaction(RoleTransactions roleTransaction)
         {
@@ -59,9 +55,10 @@ namespace SentryQualityManagement.Core.Services
             return true;
         }
 
-        public Task InsertRoleTransaction(RoleTransactions RoleTransaction)
+        public async Task InsertRoleTransaction(RoleTransactions RoleTransaction)
         {
-            throw new System.NotImplementedException();
+            await _unitOfWork.RoleTransactionRepository.Add(RoleTransaction);
+            await _unitOfWork.SaveChangesAsync();
         }
     }    
 }

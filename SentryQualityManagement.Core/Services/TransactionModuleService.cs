@@ -45,7 +45,8 @@ namespace SentryQualityManagement.Core.Services
 
     public async Task InsertTransactionModule(TransactionsModules transactionModule)
     {
-        await _unitOfWork.TransactionModuleRepository.Add(transactionModule);
+       await _unitOfWork.TransactionModuleRepository.Add(transactionModule);
+       await _unitOfWork.SaveChangesAsync();
     }
 
     public async Task<bool> UpdateTransactionModule(TransactionsModules transactionModules)

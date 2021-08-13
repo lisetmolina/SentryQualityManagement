@@ -49,6 +49,7 @@ namespace SentryQualityManagement.Core.Services
         public async Task InsertIndicatorsResults(IndicatorsResults indicatorResult)
         {
             await _unitOfWork.IndicatorResultRepository.Add(indicatorResult);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public Task InsertIndicatorResults(IndicatorsResults IndicatorResult)

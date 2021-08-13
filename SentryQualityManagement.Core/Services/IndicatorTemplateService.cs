@@ -51,6 +51,7 @@ namespace SentryQualityManagement.Core.Services
         public async Task InsertIndicatorTemplate(IndicatorsTemplate indicatorTemplate)
         {
             await _unitOfWork.IndicatorTemplateRepository.Add(indicatorTemplate);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<bool> UpdateIndicatorTemplate(IndicatorsTemplate indicatorTemplate)
