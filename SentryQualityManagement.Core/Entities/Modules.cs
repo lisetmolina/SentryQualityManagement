@@ -12,7 +12,9 @@ namespace SentryQualityManagement.Core.Entities
             TransactionsModules = new HashSet<TransactionsModules>();
         }
 
-      
+
+
+        public int ModuleId { get; set; }
         public string ModuleName { get; set; }
         public string ModuleDescription { get; set; }
 

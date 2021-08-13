@@ -93,7 +93,7 @@ namespace SentryQualityManagement.Api.Controllers
         {
             var indicatorTemplate = _mapper.Map<IndicatorsTemplate>(indicatorTemplateDto);
 
-            indicatorTemplate.Id = id;
+            indicatorTemplate.IndicatorTemplateId = id;
 
             var result = await _indicatorTemplateService.UpdateIndicatorTemplate(indicatorTemplate);
             var response = new ApiResponse<bool>(result);

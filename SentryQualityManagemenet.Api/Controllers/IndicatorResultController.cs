@@ -96,7 +96,7 @@ namespace SentryQualityManagement.Api.Controllers
         public async Task<IActionResult> Put(int id, IndicatorResultDto indicatorResultDto)
         {
             var indicatorResult = _mapper.Map<IndicatorsResults>(indicatorResultDto);
-            indicatorResult.Id = id;
+            indicatorResult.IndicatorsResultId = id;
 
             var result = await _indicatorResultService.UpdateIndicatorResult(indicatorResult);
             var response = new ApiResponse<bool>(result);

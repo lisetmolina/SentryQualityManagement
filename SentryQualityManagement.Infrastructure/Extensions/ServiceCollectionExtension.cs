@@ -31,8 +31,11 @@ namespace SentryQualityManagement.Infrastructure.Extensions
         }
         public static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<PaginationOptions>(options => configuration.GetSection("Pagination"));
-            services.Configure<PasswordOptions>(options => configuration.GetSection("PasswordOptions"));
+            //services.AddSingleton<IEmailConfiguration>(Configuration.GetSection(NombresConstantes.NombreSeccionConfiguracionEmail).Get<EmailConfiguration>());
+
+            services.Configure<Core.Interfaces.IPaginationOptions>(options => configuration.GetSection("Pagination").Get<PaginationOptions>());
+            services.AddSingleton<IPasswordOptions>(configuration.GetSection("PasswordOptions").Get<PasswordOptions>());
+
 
             return services;
         }
@@ -43,6 +46,8 @@ namespace SentryQualityManagement.Infrastructure.Extensions
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IPasswordService, PasswordService>();
+            //services.AddSingleton<IPasswordOptions, PasswordOptions>();
+
             services.AddSingleton<IUriService>(provider =>
             {
                 var accesor = provider.GetRequiredService<IHttpContextAccessor>();

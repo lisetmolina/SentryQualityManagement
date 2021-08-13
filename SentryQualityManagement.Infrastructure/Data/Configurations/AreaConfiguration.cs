@@ -8,7 +8,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Areas> builder)
         {
-            builder.HasKey(e => e.Id)
+            builder.HasKey(e => e.AreaId)
                     .HasName("PK__Areas__70B82048FBDFB870");
 
             builder.Property(e => e.AreaName)

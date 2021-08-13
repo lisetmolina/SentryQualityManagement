@@ -9,11 +9,13 @@ namespace SentryQualityManagement.Infrastructure.Services
 {
     public class PasswordService : IPasswordService
     {
-        private readonly PasswordOptions _options;
-        public PasswordService(IOptions<PasswordOptions> options)
+        private readonly IPasswordOptions _options; 
+        public PasswordService(IPasswordOptions Options)
         {
-            _options = options.Value;
+            this._options = Options;
         }
+
+      
 
         public bool Check(string hash, string password)
         {
@@ -38,13 +40,10 @@ namespace SentryQualityManagement.Infrastructure.Services
 
         public string Hash(string password)
         {
-            //PBKDF2 implementation
-            byte[] salt1 = new byte[8];
-            int myIterations = 1000;
             using var algorithm = new Rfc2898DeriveBytes(
                 password,
-                salt1,
-                myIterations
+                _options.SaltSize,
+                _options.Iterations
                 );
             var key = Convert.ToBase64String(algorithm.GetBytes(_options.KeySize));
             var salt = Convert.ToBase64String(algorithm.Salt);

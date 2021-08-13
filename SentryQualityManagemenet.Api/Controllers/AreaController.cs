@@ -95,7 +95,7 @@ namespace SentryQualityManagement.Api.Controllers
         public async Task<IActionResult> Put(int id, AreaDto areaDto)
         {
             var area = _mapper.Map<Areas>(areaDto);
-            area.Id = id;
+            area.AreaId = id;
 
             var result = await _areaService.UpdateArea(area);
             var response = new ApiResponse<bool>(result);

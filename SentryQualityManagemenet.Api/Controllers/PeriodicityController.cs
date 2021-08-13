@@ -94,7 +94,7 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Put(int id, PeriodicityDto periodicityDto)
         {
             var periodicity = _mapper.Map<Periodicities>(periodicityDto);
-            periodicity.Id = id;
+            periodicity.PeriodicityId = id;
 
             var result = await _periodicityService.UpdatePeriodicity(periodicity);
             var response = new ApiResponse<bool>(result);

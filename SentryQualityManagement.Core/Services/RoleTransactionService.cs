@@ -32,7 +32,7 @@ namespace SentryQualityManagement.Core.Services
 
             if (filters.Id != 0)
             {
-               roleTransactions = roleTransactions.Where(x => x.Id == filters.Id);
+               roleTransactions = roleTransactions.Where(x => x.RoleId == filters.Id);
             }
 
             var pagedRoleTransactions = PagedList<RoleTransactions>.Create(roleTransactions, filters.PageNumber, filters.PageSize);
