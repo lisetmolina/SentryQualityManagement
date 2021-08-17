@@ -8,9 +8,7 @@ namespace SentryQualityManagement.Core.QueryFilters
     {
         public string UserName { get; set; }
         public string Email { get; set; }
-        public string UserPassword { get; set; }
-        public bool? Active { get; set; }
-        public int RoleId { get; set; }
+       
 
         public int PageSize { get; set; }
 
