@@ -44,7 +44,14 @@ namespace SentryQualityManagement.Api
                 //options.SuppressModelStateInvalidFilter = true;
             });
 
-            
+            services.AddCors(options => options.AddPolicy("AllowPolicySecureDomains", x =>
+            {
+                x.AllowAnyOrigin()
+                  .WithOrigins("https://desarrollo_08.sistemasentry.com.co/SentryQualityManagement/swagger/index.html")
+                  .AllowAnyHeader()
+                  .AllowCredentials()
+                  .AllowAnyMethod();
+            }));
 
             services.AddOptions(Configuration);
             services.AddDbContexts(Configuration);
@@ -84,6 +91,8 @@ namespace SentryQualityManagement.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("AllowPolicySecureDomains");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
