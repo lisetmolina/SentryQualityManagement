@@ -12,7 +12,7 @@ namespace SentryQualityManagement.Infrastructure.Repositories
 
          public async Task<Users> GetLoginByCredentials(UserLogin login)
          {
-            return await _entities.FirstOrDefaultAsync(x => x.Email4 == login.User);
+            return await _entities.FirstOrDefaultAsync(x => x.Email == login.User);
          }
         
     }
