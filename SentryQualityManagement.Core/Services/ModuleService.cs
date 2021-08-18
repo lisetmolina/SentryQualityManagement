@@ -39,11 +39,7 @@ namespace SentryQualityManagement.Core.Services
                 }
 
 
-                if (filters.ModuleDescription != null)
-                {
-                modules = modules.Where(x => x.ModuleDescription.ToLower().Contains(filters.ModuleDescription.ToLower()));
-                }
-
+               
                 var pagedModules = PagedList<Modules>.Create(modules, filters.PageNumber, filters.PageSize);
                 return pagedModules;
 

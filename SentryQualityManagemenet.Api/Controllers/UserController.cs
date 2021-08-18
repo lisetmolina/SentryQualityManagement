@@ -100,8 +100,22 @@ namespace SentryQualityManagemenet.Api.Controllers
 
             var result = await _userService.UpdateUser(user);
             var response = new ApiResponse<bool>(result);
+            try
+            {
+                user.UserPassword = _passwordService.Hash(user.UserPassword);
+                await _userService.UpdateUser(user);
+                userDto = _mapper.Map<UserDto>(user);
+                response = new ApiResponse<bool>(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
             return Ok(response);
+
         }
+    
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

@@ -49,7 +49,6 @@ namespace SentryQualityManagement.Api
                 x.AllowAnyOrigin()
                   .WithOrigins("https://desarrollo_08.sistemasentry.com.co")
                   .AllowAnyHeader()
-                  .AllowCredentials()
                   .AllowAnyMethod();
             }));
 

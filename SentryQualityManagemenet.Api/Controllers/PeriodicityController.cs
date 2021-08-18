@@ -9,6 +9,7 @@ using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace SentryQualityManagemenet.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -82,12 +83,20 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Post(PeriodicityDto periodicityDto)
         {
             var periodicity = _mapper.Map<Periodicities>(periodicityDto);
+            try
+            {
+               await _periodicityService.InsertPeriodicity(periodicity);
 
-            await _periodicityService.InsertPeriodicity(periodicity);
+               periodicityDto = _mapper.Map<PeriodicityDto>(periodicity);
+               var response = new ApiResponse<PeriodicityDto>(periodicityDto);
+               return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new Periodicity: {ex.Message}");
+            }
 
-            periodicityDto = _mapper.Map<PeriodicityDto>(periodicity);
-            var response = new ApiResponse<PeriodicityDto>(periodicityDto);
-            return Ok(response);
+
         }
 
         [HttpPut]

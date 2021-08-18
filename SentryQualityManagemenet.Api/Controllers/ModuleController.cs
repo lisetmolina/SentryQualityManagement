@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -18,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace SentryQualityManagemenet.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -86,11 +85,21 @@ namespace SentryQualityManagemenet.Api.Controllers
         {
             var module = _mapper.Map<Modules>(moduleDto);
 
-            await _moduleService.InsertModule(module);
+            try
+            {
 
-            moduleDto = _mapper.Map<ModuleDto>(module);
-            var response = new ApiResponse<ModuleDto>(moduleDto);
-            return Ok(response);
+               await _moduleService.InsertModule(module);
+
+              moduleDto = _mapper.Map<ModuleDto>(module);
+              var response = new ApiResponse<ModuleDto>(moduleDto);
+              return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new Module: {ex.Message}");
+            }
+
+
         }
 
         [HttpPut]

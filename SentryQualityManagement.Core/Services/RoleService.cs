@@ -38,11 +38,7 @@ namespace SentryQualityManagement.Core.Services
             }
 
 
-            if (filters.RoleDescription != null)
-            {
-                roles = roles.Where(x => x.RoleDescription.ToLower().Contains(filters.RoleDescription.ToLower()));
-            }
-
+           
             var pagedRoles = PagedList<Roles>.Create(roles, filters.PageNumber, filters.PageSize);
             return pagedRoles;
 
