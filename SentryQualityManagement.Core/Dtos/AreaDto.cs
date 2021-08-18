@@ -2,7 +2,7 @@
 {
     public class AreaDto
     {
-        public int Id { get; set; }
+      
         public string AreaName { get; set; }
         public int UserId { get; set; }
 

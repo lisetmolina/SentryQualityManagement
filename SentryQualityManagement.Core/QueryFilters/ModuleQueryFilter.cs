@@ -7,7 +7,7 @@ namespace SentryQualityManagement.Core.QueryFilters
     public class ModuleQueryFilter
     {
         public string ModuleName { get; set; }
-        public string ModuleDescription { get; set; }
+        
         public int PageSize { get; set; }
 
         public int PageNumber { get; set; }

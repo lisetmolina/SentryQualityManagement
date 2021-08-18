@@ -9,13 +9,14 @@ using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace SentryQualityManagemenet.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -81,12 +82,19 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Post(TransactionDto transactionDto)
         {
             var transaction = _mapper.Map<Transactions>(transactionDto);
+          
+            try
+            {
+                await _transactionService.InsertTransaction(transaction);
 
-            await _transactionService.InsertTransaction(transaction);
-
-            transactionDto = _mapper.Map<TransactionDto>(transaction);
-            var response = new ApiResponse<TransactionDto>(transactionDto);
-            return Ok(response);
+                transactionDto = _mapper.Map<TransactionDto>(transaction);
+                var response = new ApiResponse<TransactionDto>(transactionDto);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new Transaction: {ex.Message}");
+            }
         }
 
         [HttpPut]

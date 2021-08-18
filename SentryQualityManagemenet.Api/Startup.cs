@@ -47,9 +47,8 @@ namespace SentryQualityManagement.Api
             services.AddCors(options => options.AddPolicy("AllowPolicySecureDomains", x =>
             {
                 x.AllowAnyOrigin()
-                  .WithOrigins("https://desarrollo_08.sistemasentry.com.co/SentryQualityManagement/swagger/index.html")
+                  .WithOrigins("https://desarrollo_08.sistemasentry.com.co")
                   .AllowAnyHeader()
-                  .AllowCredentials()
                   .AllowAnyMethod();
             }));
 
