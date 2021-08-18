@@ -9,6 +9,7 @@ using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -83,13 +84,23 @@ namespace SentryQualityManagement.Api.Controllers
         public async Task<IActionResult> Post(AreaDto areaDto)
         {
             var area = _mapper.Map<Areas>(areaDto);
+            try
+            {
+                await _areaService.InsertArea(area);
 
-            await _areaService.InsertArea(area);
+                areaDto = _mapper.Map<AreaDto>(area);
+                var response = new ApiResponse<AreaDto>(areaDto);
+                return Ok(response);
+            }
 
-            areaDto = _mapper.Map<AreaDto>(area);
-            var response = new ApiResponse<AreaDto>(areaDto);
-            return Ok(response);
+            catch (Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new Area: {ex.Message}");
+            }
         }
+           
+        
+        
 
         [HttpPut]
         public async Task<IActionResult> Put(int id, AreaDto areaDto)

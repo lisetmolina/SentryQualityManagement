@@ -42,7 +42,7 @@ namespace SentryQualityManagement.Core.Services
 
         }
 
-        public async Task InsertAreas(Areas area)
+        public async Task InsertArea(Areas area)
         {
             await _unitOfWork.AreaRepository.Add(area);
             await _unitOfWork.SaveChangesAsync();
@@ -62,9 +62,6 @@ namespace SentryQualityManagement.Core.Services
             return true;
         }
 
-        public Task InsertArea(Areas Area)
-        {
-            throw new System.NotImplementedException();
-        }
+       
     }
 }
