@@ -9,13 +9,14 @@ using SentryQualityManagement.Core.Entities;
 using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace SentryQualityManagement.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -80,13 +81,21 @@ namespace SentryQualityManagement.Api.Controllers
         public async Task<IActionResult> Post(IndicatorTemplateDto indicatorTemplateDto)
         {
             var indicatorTemplate = _mapper.Map<IndicatorsTemplate>(indicatorTemplateDto);
+            try
+            {
+                await _indicatorTemplateService.InsertIndicatorTemplate(indicatorTemplate);
 
-            await _indicatorTemplateService.InsertIndicatorTemplate(indicatorTemplate);
-
-            indicatorTemplateDto = _mapper.Map<IndicatorTemplateDto>(indicatorTemplate);
-            var response = new ApiResponse<IndicatorTemplateDto>(indicatorTemplateDto);
-            return Ok(response);
+                indicatorTemplateDto = _mapper.Map<IndicatorTemplateDto>(indicatorTemplate);
+                var response = new ApiResponse<IndicatorTemplateDto>(indicatorTemplateDto);
+                return Ok(response);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new indicator: {ex.Message}");
+            }
         }
+
+    
 
         [HttpPut]
         public async Task<IActionResult> Put(int id, IndicatorTemplateDto indicatorTemplateDto)

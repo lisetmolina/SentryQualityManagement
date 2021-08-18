@@ -43,6 +43,8 @@ namespace SentryQualityManagement.Infrastructure.Extensions
         {
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IIndicatorService, IndicatorService>();
+            services.AddTransient<IIndicatorTemplateService, IndicatorTemplateService>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IPasswordService, PasswordService>();
