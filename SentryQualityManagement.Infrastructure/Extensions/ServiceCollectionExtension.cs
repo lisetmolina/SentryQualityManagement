@@ -12,10 +12,7 @@ using SentryQualityManagement.Infrastructure.Options;
 using SentryQualityManagement.Infrastructure.Repositories;
 using SentryQualityManagement.Infrastructure.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using System.Text;
 
 namespace SentryQualityManagement.Infrastructure.Extensions
 {
@@ -46,6 +43,7 @@ namespace SentryQualityManagement.Infrastructure.Extensions
             services.AddTransient<IAreaService, AreaService>();
             services.AddTransient<IModuleService, ModuleService>();
             services.AddTransient<ITransactionService,TransactionService>();
+            services.AddTransient<ITransactionModuleService, TransactionModuleService>();
             services.AddTransient<IPeriodicityService, PeriodicityService>();
             services.AddTransient<IIndicatorService, IndicatorService>();
             services.AddTransient<IIndicatorTemplateService, IndicatorTemplateService>();

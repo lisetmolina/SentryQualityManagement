@@ -1,23 +1,38 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SentryQualityManagement.Api.Responses;
 using SentryQualityManagement.Core.CustomEntities;
 using SentryQualityManagement.Core.Dtos;
 using SentryQualityManagement.Core.Entities;
+using SentryQualityManagement.Core.Interfaces;
 using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Core.Services;
 using SentryQualityManagement.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-namespace SentryQualityManagemenet.Api.Controllers
+
+namespace SentryQualityManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class TransactionModuleController : ControllerBase
     {
-        private readonly TransactionModuleService _transactionModuleService;
+    }
+    namespace SentryQualityManagement.Api.Controllers
+    {
+        //[Authorize]
+        [Produces("application/json")]
+        [Route("api/[controller]")]
+        [ApiController]
+
+        public class TransactionModuleController : ControllerBase
+        {
+            private readonly TransactionModuleService _transactionModuleService;
         private readonly IMapper _mapper;
         private readonly IUriService _uriService;
         public TransactionModuleController(TransactionModuleService transactionModuleService, IMapper mapper, IUriService uriService)
@@ -77,12 +92,18 @@ namespace SentryQualityManagemenet.Api.Controllers
         public async Task<IActionResult> Post(TransactionModuleDto transactionModuleDto)
         {
             var transactionModule = _mapper.Map<TransactionsModules>(transactionModuleDto);
+            try
+            {
+                await _transactionModuleService.InsertTransactionModule(transactionModule);
 
-            await _transactionModuleService.InsertTransactionModule(transactionModule);
-
-            transactionModuleDto = _mapper.Map<TransactionModuleDto>(transactionModule);
-            var response = new ApiResponse<TransactionModuleDto>(transactionModuleDto);
-            return Ok(response);
+                transactionModuleDto = _mapper.Map<TransactionModuleDto>(transactionModule);
+                var response = new ApiResponse<TransactionModuleDto>(transactionModuleDto);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error when trying to create a new Transaction Module: {ex.Message}");
+            }
         }
 
         [HttpPut]
@@ -106,3 +127,6 @@ namespace SentryQualityManagemenet.Api.Controllers
         }
     }
 }
+
+    
+    }

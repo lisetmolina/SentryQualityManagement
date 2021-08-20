@@ -8,8 +8,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using SentryQualityManagement.Infrastructure.Extensions;
 using SentryQualityManagement.Infrastructure.Filters;
-using SentryQualityManagement.Infrastructure.Interfaces;
-using SentryQualityManagement.Infrastructure.Options;
 using System;
 using System.Reflection;
 using System.Text;

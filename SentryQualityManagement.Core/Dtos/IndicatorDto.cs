@@ -11,7 +11,6 @@ namespace SentryQualityManagement.Core.Dtos
         public string IndicatorDescription { get; set; }
         public string Formula { get; set; }
         public int PeriodicityId { get; set; }
-        public int IndicatorTemplateId { get; set; }
         public int AreaId { get; set; }
     }
 }
