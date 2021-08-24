@@ -31,11 +31,7 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
                 .HasForeignKey(d => d.AreaId)
                 .HasConstraintName("FK__Indicator__AreaI__3E52440B");
 
-           builder.HasOne(d => d.IndicatorTemplate)
-                .WithMany(p => p.Indicators)
-                .HasForeignKey(d => d.IndicatorTemplateId)
-                .HasConstraintName("FK__Indicator__Indic__3D5E1FD2");
-
+        
            builder.HasOne(d => d.Periodicity)
                 .WithMany(p => p.Indicators)
                 .HasForeignKey(d => d.PeriodicityId)

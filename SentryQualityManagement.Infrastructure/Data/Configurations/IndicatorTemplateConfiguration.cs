@@ -17,6 +17,8 @@ namespace SentryQualityManagement.Infrastructure.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
+
+
         }
     }
 }

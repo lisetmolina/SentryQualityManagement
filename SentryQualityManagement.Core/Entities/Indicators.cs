@@ -12,11 +12,10 @@ namespace SentryQualityManagement.Core.Entities
         public string IndicatorDescription { get; set; }
         public string Formula { get; set; }
         public int PeriodicityId { get; set; }
-        public int IndicatorTemplateId { get; set; }
         public int AreaId { get; set; }
 
         public virtual Areas Area { get; set; }
-        public virtual IndicatorsTemplate IndicatorTemplate { get; set; }
+       
         public virtual Periodicities Periodicity { get; set; }
     }
 }

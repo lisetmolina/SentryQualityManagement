@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SentryQualityManagement.Api.Responses;
@@ -12,7 +10,6 @@ using SentryQualityManagement.Core.QueryFilters;
 using SentryQualityManagement.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -25,7 +22,7 @@ namespace SentryQualityManagemenet.Api.Controllers
     }
     namespace SentryQualityManagement.Api.Controllers
     {
-        [Authorize]
+        //[Authorize]
         [Produces("application/json")]
         [Route("api/[controller]")]
         [ApiController]
@@ -92,12 +89,18 @@ namespace SentryQualityManagemenet.Api.Controllers
             public async Task<IActionResult> Post(RoleTransactionDto roleTransactionDto)
             {
                 var roleTransaction = _mapper.Map<RoleTransactions>(roleTransactionDto);
+                try
+                {
+                    await _roleTransactionService.InsertRoleTransaction(roleTransaction);
 
-                await _roleTransactionService.InsertRoleTransaction(roleTransaction);
-
-                roleTransactionDto = _mapper.Map<RoleTransactionDto>(roleTransaction);
-                var response = new ApiResponse<RoleTransactionDto>(roleTransactionDto);
-                return Ok(response);
+                    roleTransactionDto = _mapper.Map<RoleTransactionDto>(roleTransaction);
+                    var response = new ApiResponse<RoleTransactionDto>(roleTransactionDto);
+                    return Ok(response);
+                }
+                catch (Exception ex)
+                {
+                 return BadRequest($"Error when trying to create a new Transaction Module: {ex.Message}");
+                }
             }
 
             [HttpPut]

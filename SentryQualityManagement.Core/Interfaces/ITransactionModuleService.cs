@@ -11,9 +11,9 @@ namespace SentryQualityManagement.Core.Interfaces
 
         Task<TransactionsModules> GetTransactionModule(int id);
 
-        Task InsertTransactionModule(TransactionsModules TrasactionModule);
+        Task InsertTransactionModule(TransactionsModules TransactionModule);
 
-        Task<bool> UpdateTransactionModule(TransactionsModules trasactionModule);
+        Task<bool> UpdateTransactionModule(TransactionsModules transactionModules);
 
         Task<bool> DeleteTransactionModule(int Id);
     }

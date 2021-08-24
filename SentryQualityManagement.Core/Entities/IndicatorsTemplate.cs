@@ -17,5 +17,7 @@ namespace SentryQualityManagement.Core.Entities
         public DateTime ElementDate { get; set; }
 
         public virtual ICollection<Indicators> Indicators { get; set; }
+        public virtual Indicators IndicatorsId { get; set; }
+
     }
 }

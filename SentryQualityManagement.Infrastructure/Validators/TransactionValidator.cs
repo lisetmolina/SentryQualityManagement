@@ -16,8 +16,8 @@ namespace SentryQualityManagement.Infrastructure.Validators
                 .WithMessage("El nombre no puede ser nulo");
 
             RuleFor(transaction => transaction.TransactionName)
-                .Length(1, 50)
-                .WithMessage("La longitud del nombre debe estar entre 1 y 50 caracteres");
+                .Length(1, 1000)
+                .WithMessage("La longitud del nombre debe estar entre 1 y 1000 caracteres");
 
         }
     }
