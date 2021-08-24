@@ -8,6 +8,6 @@ namespace SentryQualityManagement.Core.Interfaces
 {
     public interface IIndicatorTemplateRepository : IRepository<IndicatorsTemplate>
     {
-        Task<IEnumerable<IndicatorsTemplate>> GetRolesByUser(int userId);
+        Task<IEnumerable<IndicatorsTemplate>> GetIndicatorTemplateByUser(int userId);
     }
 }
