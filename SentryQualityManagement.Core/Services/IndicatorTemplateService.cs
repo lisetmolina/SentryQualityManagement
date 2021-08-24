@@ -38,11 +38,6 @@ namespace SentryQualityManagement.Core.Services
             }
 
 
-            if (filters.ElementDate != null)
-            {
-                indicatorsTemplate = indicatorsTemplate.Where(x => x.ElementDate == filters.ElementDate);
-            }
-
             var pagedIndicatorsTemplate = PagedList<IndicatorsTemplate>.Create(indicatorsTemplate, filters.PageNumber, filters.PageSize);
             return pagedIndicatorsTemplate;
 
